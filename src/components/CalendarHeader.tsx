@@ -28,6 +28,7 @@ const CalendarHeader = () => {
     setSelectedDate(date);
     setCurrentMonth(date.getMonth());
     setCurrentYear(date.getFullYear());
+    //@ts-ignore
     setSelectedHoliday(nextHoliday.value);
   };
 
@@ -35,6 +36,7 @@ const CalendarHeader = () => {
     setSelectedDate(today);
     setCurrentMonth(today.getMonth());
     setCurrentYear(today.getFullYear());
+    //@ts-ignore
     setSelectedHoliday(undefined);
   };
 

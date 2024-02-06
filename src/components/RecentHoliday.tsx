@@ -19,6 +19,7 @@ const RecentHoliday = () => {
   const navigateToHoliday = () => {
     setCurrentMonth(date.getMonth());
     setCurrentYear(date.getFullYear());
+    //@ts-ignore
     setSelectedDate(date);
   };
 

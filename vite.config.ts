@@ -54,6 +54,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {  
+    //@ts-ignore
     https: true
   }, 
   plugins: [
