@@ -2,6 +2,7 @@ import { useIsMobile } from '@/hooks/useIsMobile';
 import { useSelectedDate } from '@/hooks/useSelectedDate';
 import { Lunar } from 'lunar-typescript';
 import { InfoCard } from './ui';
+import { chooseLunchByTimestamp } from '@/libs/foods';
 
 const LunarInfoCard = () => {
   const { selectedDate } = useSelectedDate();
@@ -43,6 +44,8 @@ const LunarInfoCard = () => {
     );
   };
 
+  const eatString = selectedDate && "吃" + chooseLunchByTimestamp((selectedDate).toISOString())
+
   return (
     <InfoCard className='flex gap-4 md:gap-10 dark:text-zinc-200'>
       <div className='flex flex-col gap-2 h-fit text-nowrap shrink-0'>
@@ -57,7 +60,7 @@ const LunarInfoCard = () => {
           <span className='inline-block w-4 text-xs text-center border border-blue-500 aspect-square'>
             宜
           </span>
-          {renderList(yiList)}
+          {renderList([eatString,...yiList])}
         </div>
         <div className='flex items-center gap-2 text-sm md:gap-4'>
           <span className='inline-block w-4 text-xs text-center border border-gray-400 aspect-square'>
