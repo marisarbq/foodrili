@@ -24,7 +24,8 @@ function App() {
   return (
     <>
       <ShareModal />
-      <div className='flex items-center justify-center w-full min-h-screen p-4 md:p-20 bg-slate-200 dark:bg-black/80'>
+      <div className='flex items-center justify-center flex-col w-full min-h-screen p-4 md:p-20 bg-slate-200 dark:bg-black/80'>
+        <div className='flex items-center justify-center mb-4 text-2xl'>吃饭老黄历</div>
         <div className='flex flex-col gap-3 max-md:w-full'>
           <div
             className={clsxm(

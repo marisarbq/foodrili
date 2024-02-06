@@ -4,6 +4,9 @@ import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 import gzipPlugin from 'rollup-plugin-gzip';
 import path from 'path';
 import checker from 'vite-plugin-checker';
+import mkcert from 'vite-plugin-mkcert'  
+
+
 
 const pwaOptions: Partial<VitePWAOptions> = {
   mode: 'development',
@@ -50,11 +53,14 @@ const pwaOptions: Partial<VitePWAOptions> = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {  
+    https: true
+  }, 
   plugins: [
     react(),
     VitePWA(pwaOptions),
     gzipPlugin(),
-    checker({ typescript: true }),
+    mkcert()
   ],
   resolve: {
     alias: {

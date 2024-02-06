@@ -4,25 +4,16 @@ import clsxm from '@/libs/clsxm';
 import { getBadgeText } from '@/libs/day';
 import DateComponent from './DateComponent';
 import { Day } from '@/interfaces/day';
+import { chooseLunchByTimestamp } from '../libs/foods';
+import { isWeekend } from 'date-fns';
 
 const getContent = (day: Day, customContent?: string) => {
-  if (customContent !== undefined) {
-    return customContent;
-  }
 
-  if (day.holiday) {
-    return holidayDetails[day.holiday].chinese;
+  if(!(day.isWeekend || day.isHoliday) && !day.isRestDay) {
+    return chooseLunchByTimestamp(day.date.toISOString());  
+  } else {
+    return "休息"
   }
-
-  if (day.solarTerm) {
-    return day.solarTerm;
-  }
-
-  if (day.festivals.length > 0) {
-    return day.festivals[0];
-  }
-
-  return day.lunarDate;
 };
 
 const DateContainer = ({
